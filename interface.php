@@ -1,6 +1,6 @@
 <?php
 
-include_once( 'classes/MichaelsInterfaceButton.php' );
+include_once('classes/MichaelsInterfaceButton.php');
 ?>
 
     <!Doctype html>
@@ -25,7 +25,8 @@ include_once( 'classes/MichaelsInterfaceButton.php' );
 
     <body>
     <!-- Modal create student -->
-    <div class="modal fade" id="createStudent" tabindex="-1" role="dialog" aria-labelledby="createModal" aria-hidden="true">
+    <div class="modal fade" id="createStudent" tabindex="-1" role="dialog" aria-labelledby="createModal"
+         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -37,11 +38,11 @@ include_once( 'classes/MichaelsInterfaceButton.php' );
                 <form action="interface.php" method="post">
                     <div class="modal-body">
                         <input type="hidden" name="type" value="create">
-                        <label for="createFirstname">Firstname</label>
+                        <label for="createFirstname">Name</label>
                         <input type="text" class="form-control" id="createFirstname" name="firstname" required>
-                        <label for="createLastname">Lastname</label>
+                        <label for="createLastname">Course</label>
                         <input type="text" class="form-control" id="createLastname" name="lastname" required>
-                        <label for="createWhatever">Whatever</label>
+                        <label for="createWhatever">Fee</label>
                         <input type="text" class="form-control" id="createWhatever" name="whatever" required>
                     </div>
                     <div class="modal-footer">
@@ -54,7 +55,8 @@ include_once( 'classes/MichaelsInterfaceButton.php' );
     </div>
 
     <!-- Modal update student -->
-    <div class="modal fade" id="updateStudent" tabindex="-1" role="dialog" aria-labelledby="updateModal" aria-hidden="true">
+    <div class="modal fade" id="updateStudent" tabindex="-1" role="dialog" aria-labelledby="updateModal"
+         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -67,11 +69,11 @@ include_once( 'classes/MichaelsInterfaceButton.php' );
                     <div class="modal-body">
                         <input type="hidden" name="type" value="update">
                         <input type="hidden" id="updateId" name="id">
-                        <label for="updateFirstname">Firstname</label>
+                        <label for="updateFirstname">Name</label>
                         <input type="text" class="form-control" id="updateFirstname" name="firstname" required>
-                        <label for="updateLastname">Lastname</label>
+                        <label for="updateLastname">Course</label>
                         <input type="text" class="form-control" id="updateLastname" name="lastname" required>
-                        <label for="updateWhatever">Whatever</label>
+                        <label for="updateWhatever">Fee</label>
                         <input type="text" class="form-control" id="updateWhatever" name="whatever" required>
                     </div>
                     <div class="modal-footer">
@@ -84,7 +86,8 @@ include_once( 'classes/MichaelsInterfaceButton.php' );
     </div>
 
     <!-- Modal delete student -->
-    <div class="modal fade" id="deleteStudent" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
+    <div class="modal fade" id="deleteStudent" tabindex="-1" role="dialog" aria-labelledby="deleteModal"
+         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -121,8 +124,7 @@ include_once( 'classes/MichaelsInterfaceButton.php' );
                 if ($success) {
                     $alertMessage = 'Student successfully created!';
                     $alertType = 'alert-success';
-                }
-                else {
+                } else {
                     $alertMessage = 'Create of student not possible!';
                     $alertType = 'alert-danger';
                 }
@@ -132,8 +134,7 @@ include_once( 'classes/MichaelsInterfaceButton.php' );
                 if ($success) {
                     $alertMessage = 'Student successfully deleted!';
                     $alertType = 'alert-success';
-                }
-                else {
+                } else {
                     $alertMessage = 'Delete of student not possible!';
                     $alertType = 'alert-danger';
                 }
@@ -143,8 +144,7 @@ include_once( 'classes/MichaelsInterfaceButton.php' );
                 if ($success) {
                     $alertMessage = 'Student successfully updated!';
                     $alertType = 'alert-success';
-                }
-                else {
+                } else {
                     $alertMessage = 'Update of student not possible!';
                     $alertType = 'alert-danger';
                 }
@@ -175,7 +175,9 @@ include_once( 'classes/MichaelsInterfaceButton.php' );
 
     <!-- Menubar -->
     <div class="container">
-        <button type="button" class="btn btn-info mb-3" data-toggle="modal" data-target="#createStudent">Create new student</button>
+        <button type="button" class="btn btn-info mb-3" data-toggle="modal" data-target="#createStudent">Create new
+            student
+        </button>
     </div>
 
     <!-- Table -->
@@ -183,10 +185,10 @@ include_once( 'classes/MichaelsInterfaceButton.php' );
         <table class="table table-hover">
             <thead>
             <tr>
-                <th class="col-md-3">Firstname</th>
-                <th class="col-md-3">Lastname</th>
-                <th class="col-md-3">Whatever</th>
-                <th class="col-md-2"></th>
+                <th class="col-md-3">Name</th>
+                <th class="col-md-3">Course</th>
+                <th class="col-md-3">Fee</th>
+                <th class="col-md-2">Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -203,19 +205,19 @@ include_once( 'classes/MichaelsInterfaceButton.php' );
     <script>
 
         function updateModal(id, firstname, lastname, whatever) {
-            $("#updateId").val = id;
-            $("#updateFirstname").val = firstname;
-            $("#updateLastname").val = lastname;
-            $("#updateWhatever").val = whatever;
+            $("#updateId").val(id);
+            $("#updateFirstname").val(firstname);
+            $("#updateLastname").val(lastname);
+            $("#updateWhatever").val(whatever);
             $("#updateStudent").modal();
         }
 
         function deleteModal(id, firstname, lastname, whatever) {
-            $("#deleteId").val = id;
-            $("#deleteFirstname").val = firstname;
-            $("#deleteLastname").val = lastname;
-            $("#deleteWhatever").val = whatever;
-            $("#deleteTextarea").html(firstname + '<br>' + lastname + '<br>' + whatever);
+            $("#deleteId").val(id);
+            $("#deleteFirstname").val(firstname);
+            $("#deleteLastname").val(lastname);
+            $("#deleteWhatever").val(whatever);
+            $("#deleteTextarea").html("Name: " + firstname + '<br>' + "Course: " + lastname + '<br>' + "Fee: " + whatever);
             $("#deleteStudent").modal();
         }
 
@@ -225,29 +227,29 @@ include_once( 'classes/MichaelsInterfaceButton.php' );
 
 <?php
 
-function readStudent() {
+function readStudent()
+{
 
-    /*
-    $students = curl('bla');
-    if ($students === false){
+    $students = curl('http://localhost:8080/student/listStudents');
+    if ($students === false) {
         echo '<div class="alert alert-danger" role="alert">Something went wrong!</div>';
     }
-    */
-    $students = array(array('id' => '2', 'firstname' => 'Michael', 'lastname' => 'Schori', 'whatever' => 'Wohoo'));
+
+    //$students = array(array('id' => '2', 'firstname' => 'Michael', 'lastname' => 'Schori', 'whatever' => 'Wohoo'));
 
     foreach ($students as $student) {
 
         echo '<tr>';
-        echo '<td class="align-middle">' . $student['firstname'] . '</td>';
-        echo '<td class="align-middle">' . $student['lastname'] . '</td>';
-        echo '<td class="align-middle">' . $student['whatever'] . '</td>';
+        echo '<td class="align-middle">' . $student->name . '</td>';
+        echo '<td class="align-middle">' . $student->course . '</td>';
+        echo '<td class="align-middle">' . $student->fee . '</td>';
         echo '<td class="align-middle">';
         $button = new MichaelsInterfaceButton();
         $button->setButtonTitle('Update');
         $button->setButtonType('button');
         $button->setOnClickEvent('updateModal');
         $button->setButtonClass('btn btn-dark mr-2');
-        $button->setButtonAttributes(array($student['id'], $student['firstname'], $student['lastname'], $student['whatever']));
+        $button->setButtonAttributes(array($student->id, $student->name, $student->course, $student->fee));
         $button->createHtmlWithOnClick();
         $button->echoButton();
 
@@ -255,7 +257,7 @@ function readStudent() {
         $button->setButtonType('button');
         $button->setOnClickEvent('deleteModal');
         $button->setButtonClass('btn btn-danger mr-2');
-        $button->setButtonAttributes(array($student['id'], $student['firstname'], $student['lastname'], $student['whatever']));
+        $button->setButtonAttributes(array($student->id, $student->name, $student->course, $student->fee));
         $button->createHtmlWithOnClick();
         $button->echoButton();
         echo '</td>';
@@ -263,67 +265,54 @@ function readStudent() {
     }
 }
 
-function createStudent() {
+function createStudent()
+{
+    $name = $_POST['firstname'];
+    $course = $_POST['lastname'];
+    $fee = $_POST['whatever'];
 
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $whatever = $_POST['whatever'];
+    $url = 'http://localhost:8080/student/saveStudent';
+    $post_values = "name=$name&course=$course&fee=$fee";
 
-    $url = '';
-
-    $result = curl($url);
-    if ($result === false) {
-        return false;
-    }
-    else {
-        return true;
-    }
+    return $result = curl($url, 1, $post_values);
 }
 
-function deleteStudent() {
+function deleteStudent()
+{
+    $url = 'http://localhost:8080/student/deleteStudent/' . $_POST['id'];
+    return !$result = curl($url, 1);
+}
 
+function updateStudent()
+{
     $id = $_POST['id'];
+    $name = $_POST['firstname'];
+    $course = $_POST['lastname'];
+    $fee = $_POST['whatever'];
 
-    $url = '';
+    $url = 'http://localhost:8080/student/saveStudent';
+    $post_values = "name=$name&course=$course&fee=$fee&id=$id";
 
-    $result = curl($url);
-    if ($result === false) {
-        return false;
-    }
-    else {
-        return true;
-    }
+    return $result = curl($url, 1, $post_values);
 }
 
-function updateStudent() {
-
-    $id = $_POST['id'];
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $whatever = $_POST['whatever'];
-
-    $url = '';
-
-    $result = curl($url);
-    if ($result === false) {
-        return false;
-    }
-    else {
-        return true;
-    }
-}
-
-function curl($url) {
+function curl($url, $post = 0, $post_values = false)
+{
 
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, $url);
+    if ($post === 1) {
+        curl_setopt($curl, CURLOPT_POST, 1);
+    }
+    if ($post_values !== false) {
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $post_values);
+    }
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
     $result = curl_exec($curl);
     if (curl_getinfo($curl, CURLINFO_RESPONSE_CODE) == 200) {
         curl_close($curl);
         return json_decode($result);
-    }
-    else {
+    } else {
         return false;
     }
 }
